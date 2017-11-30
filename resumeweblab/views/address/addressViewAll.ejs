@@ -1,0 +1,39 @@
+<p>Add new Address: street, zip</p>
+<form action="/address/all" method="POST">
+    <input type="text" name='address[street]'>
+    <input type="text" name='address[zip_code]'>
+    <button type="Submit">submit</button>
+</form>
+<table>
+    <thead>
+        <tr>
+
+            <td>Street</td>
+            <td>Zip</td>
+            <td>delete</td>
+            <td>ID</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        <% response.forEach(function(i) { %>
+        <tr>
+
+            <td><%= i.street %></td>
+            <td><%= i.zip_code %></td>
+            <td><%= i.address_id %></td>
+            <td><a href="/address/delete/<%=i.address_id%>">&#128128;</a></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+<p>Update a record<p>
+<div><div>
+</div> Street, ZIP, ID </div>
+<form action="/address/edit" method="POST">
+    <input type="text" name="address[street]">
+    <input type="text" name="address[zip_code]">
+    <input type="text" name="address[address_id]">
+
+    <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,35 @@
+<p>Add new School: School name, school id, address id</p>
+<form action="/school/all" method="POST">
+    <input type="text" name='school[school_name]'>
+    <input type="text" name='school[school_id]'>
+    <input type="text" name='school[address_id]'>
+    <button type="Submit">submit</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <td>school_id</td>
+        <td>school_name</td>
+        <td>address_id</td>
+        <td>delete</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% response.forEach(function(i) { %>
+    <tr>
+        <td><%= i.school_id %></td>
+        <td><%= i.school_name %></td>
+        <td><%= i.address_id %></td>
+        <td><a href="/school/delete/<%=i.address_id%>">Delete</a></td>
+    </tr>
+    <% }); %>
+    </tbody>
+</table>
+<p>Update a record schoolID, schoolName, addressID</p>
+<form action="/school/edit" method="POST">
+    <input type="text" name="school[school_id]">
+    <input type="text" name="school[school_name]">
+    <input type="text" name="school[address_id]">
+    <button type="submit">Submit</button>
+</form>
