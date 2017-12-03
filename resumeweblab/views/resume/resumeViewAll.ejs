@@ -1,0 +1,8 @@
+<%- include("../includes/header.ejs", {title:"Add New Company"}); %>
+
+<ul>
+    <% result.forEach(function(i){ %>
+    <li><a href="/resume/update/<%= i.account_id %>"></a></li>
+    <% }); %>
+</ul>
+<%- include("../includes/footer.ejs"); %>

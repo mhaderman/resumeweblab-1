@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router;
 var insert = require('../model/Universal');
-var account_dal = require('../model/address_dal');
+var account_dal = require('../model/account_dal');
 
 router.get('/all', function(req, res){
     account_dal.getAll(function (err, response){
@@ -10,7 +10,7 @@ router.get('/all', function(req, res){
     });
 });
 
-router.post('/all', function(req, res){
+/*router.post('/all', function(req, res){
     console.log("post req called");
     console.log(req.body.account);
     insert.Universal("account", req.body.account, function(err, result){
@@ -20,6 +20,10 @@ router.post('/all', function(req, res){
             res.redirect('/account/all');
         }
     });
+});*/
+router.post('./insert', function(req, res){
+    insert.insert('account', req.body.account);
+    res.redirect('/account/all');
 });
 
 router.get('/delete/:id', function(req, res){

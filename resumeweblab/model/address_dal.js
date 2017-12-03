@@ -28,5 +28,5 @@ exports.edit = function(addressObj, callback){
     console.log(query);
     connection.query(query, function(err, result){
         callback(err, result);
-    })
-}
+    });
+};

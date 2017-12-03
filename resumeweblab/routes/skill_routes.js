@@ -23,8 +23,9 @@ router.post('/all', function(req, res){
 });
 
 router.get('/delete/:id', function(req, res){
+    var id = req.params.id;
     console.log(req.params.id);
-    skill_dal.delete(req.params.id, function(err, result){
+    skill_dal.delete(id, function(err, result){
         if(err){
             res.send(err);
         }else{
