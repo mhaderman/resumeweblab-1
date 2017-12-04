@@ -42,6 +42,7 @@ router.get('/add', function(req, res){
             res.send(err);
         }
         else {
+            console.log("result", result);
             res.render('company/companyAdd', {'address': result});
         }
     });

@@ -27,5 +27,5 @@ exports.edit = function(addressObj, callback){
     var query= "update school set school_name = '" + school + "', address_id = " + address_id + " where school_id = " + id +";";
     connection.query(query, function(err, result){
         callback(err, result);
-    })
-}
+    });
+};

@@ -8,6 +8,8 @@ exports.getAll = function(callback) {
     var query = 'SELECT * FROM address;';
 
     connection.query(query, function(err, result) {
+        console.log("address_dal getAll result: " + result);
+
         callback(err, result);
     });
 };

@@ -1,8 +1,39 @@
-<%- include("../includes/header.ejs", {title:"Add New Company"}); %>
+<p>Resume Records</p>
+<br>
+<p>Add a resume</p>
 
-<ul>
-    <% result.forEach(function(i){ %>
-    <li><a href="/resume/update/<%= i.account_id %>"></a></li>
+<table>
+    <thead>
+    <tr>
+
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Resume</td>
+        <td>Delete</td>
+        <td> SELECT </td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% response.forEach(function(i) { %>
+    <tr>
+
+        <td><%= i.first_name %></td>
+        <td><%= i.last_name %></td>
+        <td><%= i.resume_name %></td>
+        <td><a href="/resume/delete/<%=i.account_id%>">&#128128;</a></td>
+        <td><a href="resume/add/viewuser/<%=i.account_id%>">SELECT USER</a></td>
+    </tr>
     <% }); %>
-</ul>
-<%- include("../includes/footer.ejs"); %>
+    </tbody>
+</table>
+<p>Update a record<p>
+<div><div>
+    </div> First, Last, Resume Name </div>
+<form action="/resume/edit" method="POST">
+    <input type="text" name="resume[first_name]">
+    <input type="text" name="resume[last_name]">
+    <input type="text" name="resume[resume_description]">
+
+    <button type="submit">Submit</button>
+</form>
