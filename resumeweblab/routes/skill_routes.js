@@ -34,6 +34,7 @@ router.get('/delete/:id', function(req, res){
     });
 });
 
+// EDIT ISN'T UPDATING, Throwing error after
 router.post('/edit', function(req,res){
     console.log("post req called");
     console.log(req.body.skill);

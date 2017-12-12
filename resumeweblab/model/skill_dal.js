@@ -20,10 +20,10 @@ exports.delete = function(skill_id, callback){
     });
 };
 
-exports.edit = function(addressObj, callback) {
-    var id = addressObj.skill_id;
-    var skill = addressObj.skill_name;
-    var description = addressObj.description;
+exports.edit = function(skillObj, callback) {
+    var id = skillObj.skill_id;
+    var skill = skillObj.skill_name;
+    var description = skillObj.description;
     var query = "update skill set skill_name = " + skill + ", description = " + description + "where skill_id = " + id;
     connection.query(query, function (err, result) {
         callback(err, result);

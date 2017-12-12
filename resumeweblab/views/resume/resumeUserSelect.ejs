@@ -3,10 +3,9 @@
 <table>
     <thead>
         <tr>
-            <td>email </td>
+            <td>Email</td>
             <td>First</td>
-            <td>Last </td>
-
+            <td>Last</td>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +16,7 @@
         <td><%= i.first_name %></td>
         <td><%= i.last_name %></td>
         <td><a href="/resume/add/selectUser/<%=i.account_id%>">Add Resume</a></td>
+
     </tr>
     <% }); %>
     </tbody>

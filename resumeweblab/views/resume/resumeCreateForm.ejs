@@ -1,24 +1,52 @@
 <%- include("../includes/header.ejs", {title:"Add New Resume"}); %>
 <h1>Add New Resume</h1>
 <form action="/Resume/insert" method="get">
-    Resume Name: <input id="resume_id" name="resume_name" type="text" />
+    New Resume Name: <input id="resume_name" name="resume_name" type="text" />
     <br />
     <br />
     School
     <br />
-    <select id="school_name" name="school_id" multiple="multiple">
-        <% school.forEach(function(i) { %>
-        <option value="<%= (i).school_name %>"><%= (i).school_name%></option>
-        <% }); %>
+    <select id="school_id" name="school_id" multiple="multiple">
+        <% for(var i=0; response.school.length > i; i++ ){ %>
+        <option value="<%=response.school[i].school_id %>"><%= response.school[i].school_name%></option>
+        <% }%>
     </select>
+    <br />
+    Company
+    <br />
+    <select id="company_id" name="company_id" multiple="multiple">
+        <% for(var i=0; response.company.length > i; i++ ){ %>
+        <option value="<%=response.company[i].company_id %>"><%= response.company[i].company_name%></option>
+        <% }%>
+    </select>
+    <br />
+    Skill(s)
+    <br />
+    <select id="skill_id" name="skill_id" mutiple="multiple">
+        <% for(var i=0; response.skill.length > i; i++) { %>
+        <option value="<%=response.skill[i].skill_id%>"><%= response.skill[i].skill_name%></option>
+        <% }%>
+    </select>
+
+    <!--Initialize the multiselect plugin:-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#school_id').multiselect();
+        });
+    </script>
 
     <!--Initialize the multiselect plugin: -->
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#school_name').multiselect();
+            $('#company_id').multiselect();
         });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#skill_id').multiselect();
+        });
+    </script>
 
     <br />
     <input type="submit" />

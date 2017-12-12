@@ -1,37 +1,40 @@
-<p>Add new Account: First, last name, email</p>
-<form action="/account/all" method="POST">
-    <input type="text" name='account[first_name]'>
-    <input type="text" name='account[last_name]'>
-    <input type="text" name='account[email]'>
-    <input type="text" name='account[account_id]'>
-    <button type="Submit">submit</button>
-</form>
-<table>
+<h1>Existing Accouts</h1>
+<html>
+<body bgcolor="#E6E6FA">
+<div>
+<table border="1">
     <thead>
         <tr>
-            <td>first_name</td>
-            <td>last_name</td>
-            <td>email</td>
-            <td>account_id</td>
-            <td>delete</td>
+            <td style='text-align:center;vertical-align:middle'>}__FIRST__{</td>
+            <td style='text-align:center;vertical-align:middle'>}__LAST__{</td>
+            <td style='text-align:center;vertical-align:middle'>}______EMAIL______{</td>
+            <td style='text-align:center;vertical-align:middle'>}_ACC.ID_{</td>
+            <td style='text-align:center;vertical-align:middle'>&#128165</td>
         </tr>
     </thead>
+
     <tbody>
         <% response.forEach(function(i) {%>
         <tr>
-            <td><%= i.first_name %></td>
-            <td><%= i.last_name %></td>
-            <td><%= i.email %></td>
-            <td><%= i.account_id %></td>
-            <td><a href="/account/delete/<%=i.account_id%>">Delete</a></td>
+            <td style='text-align:center;vertical-align:middle'><%= i.first_name %></td>
+            <td style='text-align:center;vertical-align:middle'><%= i.last_name %></td>
+            <td style='text-align:center;vertical-align:middle'><%= i.email %></td>
+            <td style='text-align:center;vertical-align:middle'><%= i.account_id %></td>
+            <td style='text-align:center;vertical-align:middle'><a href="/account/delete/<%=i.account_id%>">Delete</a></td>
         </tr>
     <% }); %>
     </tbody>
 </table>
-<P>Update a record first, last name, email</P>
+</div>
+<br>
+<a href="/account/insert"> ADD new account</a>
+<P>UPDATE an account first, last name, email, account ID</P>
 <form action="/account/edit" method="POST">
-    <input type="text" name="account[first_name]">
-    <input type="text" name="account[last_name]">
-    <input type="text" name="account[email]">
+    <input type="text" name="account[first_name]" style="background-color:#E6E6FD">
+    <input type="text" name="account[last_name]" style="background-color:#E6E6FD">
+    <input type="text" name="account[email]" style="background-color:#E6E6FD">
+    <input type="text" namme="account[account_id" style="background-color:#E6E6FD">
     <button type="submit">Submit</button>
 </form>
+</body>
+</html>
